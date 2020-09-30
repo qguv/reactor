@@ -1,0 +1,7 @@
+config_revision = 1
+
+[email_token]
+
+# arguments to datetime.timedelta
+valid_for = { minutes: 10 }
+secret_key = "CHANGE ME"

@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+Someone (probably you) tried to log in with your username on {{base_url}}. To log in, visit the following URL:
+
+    {{token}}
+{% endblock content %}

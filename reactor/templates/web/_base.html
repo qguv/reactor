@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=435, user-scalable=0">
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+  <title>reactor » {% block title %}{% endblock title %}</title>
+</head>
+<body>
+  <div class="container">
+    <ul class="bare flash">
+      {%- with messages = get_flashed_messages() %}
+      {%- for message in messages if message %}
+      <li>{{ message }}</li>
+      {%- endfor %}
+      {%- endwith %}
+    </ul>
+    <div class="content">
+      <header>
+        <h1><a href="{{ url_for('root') }}">reactor</a></h1>
+        <ul class="bare horizontal">
+          <li><a href="{{ url_for('srams') }}">Motions</a></li>
+          {%- if auth.is_authenticated() %}
+          <li>
+            ‹{{ session['h'] }}›
+            (<a href="{{ url_for('logout') }}">Log out</a>)
+          </li>
+          {%- else %}
+          <li><a href="{{ url_for('login') }}">Log in</a></li>
+          {%- endif %}
+        </ul>
+      </header>
+      {% block content %}{% endblock content %}
+      <footer>
+        <ul class="bare horizontal center">
+          <li>reactor</li>
+          <li>
+            <a href="https://github.com/qguv/reactor">source code</a>
+          </li>
+          <li>
+            made by <a href="https://quint.guvernator.net">qguv</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

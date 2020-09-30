@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Log in{% endblock title %}
+{% block content %}
+
+<p>
+    Please log in.
+</p>
+
+<form enctype="multipart/form-data">
+  <label for="username">Username</label>
+  <input id="username" name="u" required>
+
+  <button>Log in</button>
+</form>
+{% endblock content %}
